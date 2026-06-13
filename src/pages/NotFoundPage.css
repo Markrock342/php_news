@@ -1,0 +1,18 @@
+.not-found {
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.not-found__title {
+  font-family: var(--font-display);
+  font-size: 4rem;
+  font-weight: 800;
+  color: var(--color-black);
+  margin-bottom: 8px;
+}
+
+.not-found__desc {
+  font-size: 1.125rem;
+  color: var(--color-gray-600);
+  margin-bottom: 24px;
+}

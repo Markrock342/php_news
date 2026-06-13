@@ -1,0 +1,142 @@
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap);
+}
+
+.sidebar__block {
+  background: var(--color-white);
+  border: 1px solid var(--color-gray-200);
+  border-radius: var(--radius);
+  padding: 20px;
+}
+
+.sidebar__heading {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-black);
+  padding-bottom: 12px;
+  margin-bottom: 14px;
+  border-bottom: 2px solid var(--color-green);
+}
+
+.sidebar__text {
+  font-size: 0.875rem;
+  line-height: 1.65;
+  color: var(--color-gray-600);
+}
+
+.sidebar-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.sidebar-list--numbered .sidebar-list__item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.sidebar-list__num {
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-white);
+  background: var(--color-green);
+  border-radius: 2px;
+}
+
+.sidebar-list__link {
+  display: block;
+  flex: 1;
+  min-width: 0;
+}
+
+.sidebar-list__title {
+  display: block;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  line-height: 1.45;
+  color: var(--color-gray-800);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.sidebar-list__link:hover .sidebar-list__title {
+  color: var(--color-green);
+}
+
+.sidebar-list__meta {
+  display: block;
+  font-size: 0.6875rem;
+  color: var(--color-gray-400);
+  margin-top: 3px;
+}
+
+.sidebar__ig-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4px;
+  margin-bottom: 12px;
+}
+
+.sidebar__ig-item {
+  display: block;
+  aspect-ratio: 1;
+  overflow: hidden;
+  border-radius: 2px;
+  background: var(--color-gray-100);
+}
+
+.sidebar__ig-item:hover {
+  opacity: 0.9;
+}
+
+.sidebar__ig-link {
+  display: block;
+  text-align: center;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--color-green);
+}
+
+.sidebar__contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 0.8125rem;
+  color: var(--color-gray-600);
+}
+
+.sidebar__contact-list strong {
+  color: var(--color-gray-800);
+  font-weight: 600;
+}
+
+.sidebar__contact-list a {
+  color: var(--color-green);
+  word-break: break-all;
+}
+
+.sidebar__contact-btn {
+  display: inline-block;
+  margin-top: 14px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--color-green);
+}
+
+@media (max-width: 900px) {
+  .sidebar {
+    margin-top: 40px;
+  }
+}

@@ -1,0 +1,131 @@
+.headline-grid-section__header {
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid var(--color-black);
+}
+
+.headline-grid-section__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 2vw, 1.5rem);
+  font-weight: 700;
+  color: var(--color-black);
+  margin-bottom: 6px;
+}
+
+.headline-grid-section__desc {
+  font-size: 0.875rem;
+  color: var(--color-gray-600);
+}
+
+.headline-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--gap);
+}
+
+.headline-grid__item {
+  display: flex;
+  flex-direction: column;
+}
+
+.headline-card {
+  height: 100%;
+  background: var(--color-white);
+  border: 1px solid var(--color-gray-200);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: box-shadow var(--transition);
+}
+
+.headline-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.headline-card__link {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  color: inherit;
+}
+
+.headline-card__link:hover {
+  color: inherit;
+}
+
+.headline-card__image-wrap {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  flex-shrink: 0;
+  overflow: hidden;
+  background: var(--color-gray-100);
+}
+
+.headline-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 16px;
+  flex: 1;
+}
+
+.headline-card__category {
+  align-self: flex-start;
+}
+
+.headline-card__title {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--color-black);
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.headline-card:hover .headline-card__title {
+  color: var(--color-green);
+}
+
+.headline-card__excerpt {
+  font-size: 0.8125rem;
+  line-height: 1.55;
+  color: var(--color-gray-600);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  flex: 1;
+}
+
+.headline-card__body .meta-line {
+  margin-top: auto;
+  padding-top: 8px;
+}
+
+.headline-grid-section__action {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-top: 40px;
+  padding-top: 32px;
+  border-top: 1px solid var(--color-gray-200);
+}
+
+@media (max-width: 768px) {
+  .headline-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .headline-card__body {
+    padding: 14px;
+  }
+
+  .headline-card__title {
+    font-size: 0.9375rem;
+  }
+}
