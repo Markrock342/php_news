@@ -5,7 +5,7 @@ export default function AuthorLink({ name, prefix = 'โดย ' }) {
   const slug = getAuthorSlug(name);
 
   if (!slug) {
-    return <span className="meta-line__author">{prefix}{name}</span>;
+    return <span className="author-link">{prefix}{name}</span>;
   }
 
   return (

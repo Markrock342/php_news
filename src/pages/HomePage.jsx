@@ -1,19 +1,18 @@
 import MainWithSidebar from '../components/MainWithSidebar';
-import HeroHeadline from '../components/HeroHeadline';
-import HeadlineGrid from '../components/HeadlineGrid';
-import { featuredArticle, getHomeArticles } from '../data/articles';
+import HomeHero from '../components/HomeHero';
+import LatestNewsList from '../components/LatestNewsList';
+import { getHomeArticles } from '../data/articles';
 
 export default function HomePage() {
   const homeArticles = getHomeArticles();
-  const gridArticles = homeArticles.slice(1);
+  const featured = homeArticles[0];
+  const secondary = homeArticles.slice(1, 3);
+  const latest = homeArticles.slice(3, 13);
 
   return (
     <MainWithSidebar>
-      <HeroHeadline article={featuredArticle} />
-      <HeadlineGrid
-        articles={gridArticles}
-        description={`แสดงข่าวที่ติด Tag "Headline" ล่าสุด ${gridArticles.length} ข่าว`}
-      />
+      <HomeHero featured={featured} secondary={secondary} />
+      <LatestNewsList articles={latest} />
     </MainWithSidebar>
   );
 }

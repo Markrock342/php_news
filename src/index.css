@@ -7,9 +7,10 @@
 }
 
 :root {
-  --color-brand: #2f5f57;
-  --color-brand-dark: #244840;
-  --color-brand-light: #3d756c;
+  --color-brand: #1f6863;
+  --color-brand-dark: #164e4a;
+  --color-brand-light: #148f77;
+  --color-brand-bg: #e6f2ef;
   --color-black: #111111;
   --color-green: var(--color-brand);
   --color-green-dark: var(--color-brand-dark);
@@ -147,6 +148,10 @@ button {
 .btn-primary:hover {
   background: var(--color-brand-dark);
   color: var(--color-white);
+}
+
+.btn-primary--wide {
+  width: 100%;
 }
 
 .page-header {

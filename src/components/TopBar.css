@@ -1,0 +1,45 @@
+.top-bar {
+  background: var(--color-black);
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 0.75rem;
+  padding: 8px 0;
+}
+
+.top-bar__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.top-bar__date {
+  text-transform: capitalize;
+}
+
+.top-bar__links {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.top-bar__links a {
+  color: rgba(255, 255, 255, 0.75);
+  transition: color var(--transition);
+}
+
+.top-bar__links a:hover {
+  color: var(--color-white);
+}
+
+.top-bar__sep {
+  opacity: 0.35;
+}
+
+@media (max-width: 640px) {
+  .top-bar__inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+}

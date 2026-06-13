@@ -1,0 +1,133 @@
+.home-hero {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 20px;
+  margin-bottom: 36px;
+}
+
+.home-hero__main-image-wrap {
+  display: block;
+  position: relative;
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.home-hero__main-image {
+  aspect-ratio: 16 / 10;
+}
+
+.home-hero__main-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 10px;
+  padding: 24px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.82) 0%, rgba(0, 0, 0, 0.2) 55%, transparent 100%);
+}
+
+.home-hero__main-title {
+  font-size: clamp(1.25rem, 2.2vw, 1.75rem);
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--color-white);
+}
+
+.home-hero__main-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.8125rem;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.home-hero__main-meta .author-link {
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.home-hero__main-meta .author-link:hover {
+  color: var(--color-white);
+}
+
+.home-hero__side {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.home-hero__secondary {
+  flex: 1;
+  border: 1px solid var(--color-gray-200);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--color-white);
+}
+
+.home-hero__secondary-link {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  height: 100%;
+  color: inherit;
+}
+
+.home-hero__secondary-link:hover {
+  color: inherit;
+}
+
+.home-hero__secondary-image {
+  min-height: 100%;
+}
+
+.home-hero__secondary-body {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 12px 14px;
+  justify-content: center;
+}
+
+.home-hero__secondary-title {
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--color-black);
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.home-hero__secondary-link:hover .home-hero__secondary-title {
+  color: var(--color-brand);
+}
+
+.home-hero__secondary-date {
+  font-size: 0.75rem;
+  color: var(--color-gray-400);
+}
+
+@media (max-width: 900px) {
+  .home-hero {
+    grid-template-columns: 1fr;
+  }
+
+  .home-hero__secondary-link {
+    grid-template-columns: 100px 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .home-hero__main-overlay {
+    padding: 16px;
+  }
+
+  .home-hero__secondary-link {
+    grid-template-columns: 1fr;
+  }
+
+  .home-hero__secondary-image {
+    aspect-ratio: 16 / 10;
+  }
+}

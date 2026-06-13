@@ -1,38 +1,26 @@
 import { Link } from 'react-router-dom';
-import { recentPosts, topPosts } from '../data/articles';
-import { INSTAGRAM_PHOTOS } from '../utils/images';
-import AdsBanner from './AdsBanner';
-import ArticleImage from './ArticleImage';
 import SidebarSearch from './SidebarSearch';
+import AdsBanner from './AdsBanner';
 import './Sidebar.css';
 import './SidebarSearch.css';
 
-function SidebarList({ posts, numbered = false }) {
-  return (
-    <ol className={`sidebar-list${numbered ? ' sidebar-list--numbered' : ''}`}>
-      {posts.map((post, i) => (
-        <li key={post.id} className="sidebar-list__item">
-          {numbered && <span className="sidebar-list__num">{i + 1}</span>}
-          <Link to={`/article/${post.id}`} className="sidebar-list__link">
-            <span className="sidebar-list__title">{post.title}</span>
-            <span className="sidebar-list__meta">{post.date}</span>
-          </Link>
-        </li>
-      ))}
-    </ol>
-  );
-}
+const SOCIAL = [
+  { label: 'Facebook', color: '#1877F2', href: 'https://facebook.com' },
+  { label: 'X', color: '#000000', href: 'https://x.com' },
+  { label: 'LinkedIn', color: '#0A66C2', href: 'https://linkedin.com' },
+  { label: 'YouTube', color: '#FF0000', href: 'https://youtube.com' },
+  { label: 'Line', color: '#06C755', href: 'https://line.me' },
+];
 
 function SidebarAds() {
   return (
     <div className="sidebar__ads">
-      <AdsBanner variant="rectangle" className="ads-banner--sidebar" label="Sidebar 300 × 250" />
-      <AdsBanner variant="rectangle" className="ads-banner--sidebar" label="Sidebar 300 × 250" />
+      <AdsBanner variant="rectangle" className="ads-banner--sidebar" label="300 × 250" />
     </div>
   );
 }
 
-export default function Sidebar({ variant = 'default' }) {
+export default function Sidebar({ variant = 'default', author, relatedPosts = [] }) {
   const isArticle = variant === 'article';
 
   return (
@@ -40,41 +28,69 @@ export default function Sidebar({ variant = 'default' }) {
       <SidebarSearch />
       <SidebarAds />
 
+      {isArticle && author && (
+        <div className="sidebar__block sidebar__author-box">
+          <h3 className="sidebar__heading">ABOUT THE AUTHOR</h3>
+          <div className="sidebar__author-profile">
+            <div className="sidebar__author-avatar" aria-hidden="true">
+              {author.name.charAt(0)}
+            </div>
+            <div>
+              <Link to={`/author/${author.slug}`} className="sidebar__author-name">
+                {author.name}
+              </Link>
+              <p className="sidebar__author-bio">นักเขียนรายวัน Market Times — ครอบคลุมข่าวธุรกิจและการตลาด</p>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {isArticle && relatedPosts.length > 0 && (
+        <div className="sidebar__block">
+          <h3 className="sidebar__heading">RELATED POSTS</h3>
+          <ol className="sidebar-related">
+            {relatedPosts.slice(0, 4).map((post) => (
+              <li key={post.id}>
+                <Link to={`/article/${post.id}`} className="sidebar-related__link">
+                  {post.title}
+                </Link>
+                <time className="sidebar-related__date">{post.date}</time>
+              </li>
+            ))}
+          </ol>
+        </div>
+      )}
+
       {!isArticle && (
         <>
           <div className="sidebar__block sidebar__about">
-            <h3 className="sidebar__heading">About Market Times</h3>
+            <h3 className="sidebar__heading">ABOUT US</h3>
             <p className="sidebar__text">
-              สื่อออนไลน์ด้านธุรกิจ การตลาด และไลฟ์สไตล์คนทำงาน
+              Market Times สื่อออนไลน์ด้านธุรกิจ การตลาด และไลฟ์สไตล์คนทำงาน
+              นำเสนอข่าว Headline, Movement, Insight, People และ Lifestyle
             </p>
+            <Link to="/contact" className="sidebar__read-more">
+              Read More →
+            </Link>
           </div>
 
-          <div className="sidebar__block">
-            <h3 className="sidebar__heading">Recent Posts</h3>
-            <SidebarList posts={recentPosts} />
-          </div>
-
-          <div className="sidebar__block">
-            <h3 className="sidebar__heading">Top Posts</h3>
-            <SidebarList posts={topPosts} numbered />
-          </div>
-
-          <div className="sidebar__block sidebar__instagram">
-            <h3 className="sidebar__heading">Follow Instagram</h3>
-            <div className="sidebar__ig-grid">
-              {INSTAGRAM_PHOTOS.map((photo) => (
-                <a key={photo.id} href="https://instagram.com" className="sidebar__ig-item" aria-label={photo.alt} target="_blank" rel="noreferrer">
-                  <ArticleImage photoId={photo.id} alt={photo.alt} width={120} height={120} sizes="100px" />
+          <div className="sidebar__block sidebar__follow">
+            <h3 className="sidebar__heading">FOLLOW US</h3>
+            <div className="sidebar__social">
+              {SOCIAL.map((s) => (
+                <a
+                  key={s.label}
+                  href={s.href}
+                  className="sidebar__social-btn"
+                  style={{ background: s.color }}
+                  aria-label={s.label}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  {s.label.charAt(0)}
                 </a>
               ))}
             </div>
-          </div>
-
-          <div className="sidebar__block sidebar__contact">
-            <h3 className="sidebar__heading">Contact</h3>
-            <Link to="/contact" className="sidebar__contact-btn">
-              ติดต่อเรา →
-            </Link>
           </div>
         </>
       )}
