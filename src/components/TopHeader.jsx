@@ -5,31 +5,9 @@ export default function TopHeader() {
   return (
     <header className="top-header">
       <div className="container top-header__inner">
-        <Link to="/" className="top-header__logo" aria-label="Marketimes Asia หน้าแรก">
-          <span className="top-header__logo-mark">M</span>
-          <span className="top-header__logo-text">
-            <strong>Marketimes</strong>
-            <span>Asia</span>
-          </span>
+        <Link to="/" className="top-header__logo" aria-label="Market Times หน้าแรก">
+          <img src="/logo-green.png" alt="Market Times" className="top-header__logo-img" width="140" height="48" />
         </Link>
-
-        <form className="top-header__search" role="search" onSubmit={(e) => e.preventDefault()}>
-          <label htmlFor="site-search" className="sr-only">
-            ค้นหาข่าว
-          </label>
-          <input
-            id="site-search"
-            type="search"
-            placeholder="ค้นหาข่าวและบทความ..."
-            className="top-header__search-input"
-          />
-          <button type="submit" className="top-header__search-btn" aria-label="ค้นหา">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <circle cx="11" cy="11" r="8" />
-              <path d="m21 21-4.35-4.35" />
-            </svg>
-          </button>
-        </form>
 
         <div className="top-header__social">
           <a href="https://facebook.com" className="top-header__social-link" aria-label="Facebook" target="_blank" rel="noreferrer">

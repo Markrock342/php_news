@@ -8,7 +8,7 @@ export default function HomePage() {
   const gridArticles = homeArticles.slice(1);
 
   return (
-    <MainWithSidebar showPreFooterAd>
+    <MainWithSidebar>
       <HeroHeadline article={featuredArticle} />
       <HeadlineGrid
         articles={gridArticles}

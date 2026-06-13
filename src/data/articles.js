@@ -1,4 +1,5 @@
 import { STOCK_PHOTOS } from '../utils/images';
+import { SLUG_TO_AUTHOR } from '../utils/routes';
 
 export const CATEGORIES = ['Headline', 'Movement', 'Insight', 'People', 'Lifestyle'];
 
@@ -363,7 +364,7 @@ export function getRelatedArticles(article, limit = 4) {
 export function getDefaultContent(article) {
   return [
     article.excerpt,
-    'บทความนี้เป็นตัวอย่างเนื้อหาใน Mockup สำหรับ Marketimes Asia ระบบ WordPress จริงจะดึงเนื้อหาเต็มจาก Editor พร้อมรองรับ Guest Author และ Banner ระหว่างย่อหน้า',
+    'บทความนี้เป็นตัวอย่างเนื้อหาใน Mockup สำหรับ Market Times ระบบ WordPress จริงจะดึงเนื้อหาเต็มจาก Editor พร้อมรองรับ Guest Author',
     'แบรนด์และองค์กรที่ต้องการเข้าใจตลาดไทยและเอเชีย จำเป็นต้องติดตามทั้งมโนทัศน์เชิงกลยุทธ์และสัญญาณจากพฤติกรรมผู้บริโภคที่เปลี่ยนแปลงอย่างรวดเร็ว',
     'Marketimes Asia นำเสนอมุมมองที่เป็นกลาง อ่านง่าย และเชื่อมโยงเหตุการณ์ทางธุรกิจกับบริบทที่ผู้อ่านนำไปใช้ได้จริง',
   ];
@@ -381,6 +382,12 @@ export const ARTICLE_CONTENT = {
 
 export function getArticleContent(article) {
   return ARTICLE_CONTENT[article.id] || getDefaultContent(article);
+}
+
+export function getArticlesByAuthorSlug(slug) {
+  const name = SLUG_TO_AUTHOR[slug];
+  if (!name) return [];
+  return allArticles.filter((a) => a.author === name);
 }
 
 export const recentPosts = headlineArticles.slice(1, 6);

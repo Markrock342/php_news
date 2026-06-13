@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom';
-import AdsBanner from './AdsBanner';
 import ArticleCard from './ArticleCard';
 import './HeadlineGrid.css';
 
@@ -9,8 +8,6 @@ export default function HeadlineGrid({
   description,
   showViewAll = true,
 }) {
-  const INFEED_AFTER = [7, 14];
-
   return (
     <section className="headline-grid-section" aria-labelledby="headline-grid-title">
       <div className="headline-grid-section__header">
@@ -25,13 +22,8 @@ export default function HeadlineGrid({
         <p className="headline-grid-section__desc">ยังไม่มีบทความในหมวดนี้</p>
       ) : (
         <div className="headline-grid">
-          {articles.map((article, index) => (
-            <div key={article.id} className="headline-grid__item">
-              <ArticleCard article={article} />
-              {INFEED_AFTER.includes(index + 1) && (
-                <AdsBanner variant="leaderboard" className="ads-banner--infeed" label="In-feed Banner 728 × 90" />
-              )}
-            </div>
+          {articles.map((article) => (
+            <ArticleCard key={article.id} article={article} />
           ))}
         </div>
       )}

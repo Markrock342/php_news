@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom';
 import ArticleImage from './ArticleImage';
+import AuthorLink from './AuthorLink';
+import { CategoryLink } from './CategoryLink';
 import './RelatedPosts.css';
 
 export default function RelatedPosts({ posts }) {
@@ -15,7 +17,7 @@ export default function RelatedPosts({ posts }) {
         {posts.map((post) => (
           <article key={post.id} className="related-card">
             <Link to={`/article/${post.id}`} className="related-card__link">
-              <div className="related-card__image-wrap">
+              <div className="article-thumb related-card__image-wrap">
                 <ArticleImage
                   photoId={post.image.id}
                   alt={post.image.alt}
@@ -25,12 +27,10 @@ export default function RelatedPosts({ posts }) {
                 />
               </div>
               <div className="related-card__body">
-                <span className="category-badge category-badge--outline related-card__cat">
-                  {post.category}
-                </span>
+                <CategoryLink category={post.category} outline className="related-card__cat" />
                 <h3 className="related-card__title">{post.title}</h3>
                 <div className="meta-line">
-                  <span className="meta-line__author">โดย {post.author}</span>
+                  <AuthorLink name={post.author} />
                   <span className="meta-line__dot">·</span>
                   <time>{post.date}</time>
                 </div>

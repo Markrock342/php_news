@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom';
 import ArticleImage from './ArticleImage';
+import AuthorLink from './AuthorLink';
+import { CategoryLink, TagLink } from './CategoryLink';
 import './HeroHeadline.css';
 
 export default function HeroHeadline({ article }) {
@@ -7,29 +9,30 @@ export default function HeroHeadline({ article }) {
 
   return (
     <section className="hero-headline" aria-labelledby="hero-headline-title">
-      <div className="hero-headline__image-wrap">
+      <Link to={`/article/${article.id}`} className="hero-headline__image-wrap article-thumb">
         <ArticleImage
           photoId={article.image.id}
           alt={article.image.alt}
-          className="hero-headline__image"
           loading="eager"
-          width={1200}
-          height={675}
-          sizes="(max-width: 900px) 100vw, 60vw"
+          width={800}
+          height={500}
+          sizes="(max-width: 900px) 100vw, 720px"
         />
-        <span className="hero-headline__tag-badge">Headline</span>
-      </div>
+      </Link>
 
       <div className="hero-headline__content">
-        <span className="category-badge">{article.category}</span>
+        <div className="hero-headline__tags">
+          <CategoryLink category={article.category} />
+          {article.tags.includes('Headline') && <TagLink tag="Headline" outline />}
+        </div>
         <h1 id="hero-headline-title" className="hero-headline__title">
           <Link to={`/article/${article.id}`}>{article.title}</Link>
         </h1>
         <p className="hero-headline__excerpt">{article.excerpt}</p>
         <div className="meta-line hero-headline__meta">
-          <span className="meta-line__author">โดย {article.author}</span>
+          <AuthorLink name={article.author} />
           <span className="meta-line__dot">·</span>
-          <time dateTime="2026-06-13">{article.date}</time>
+          <time>{article.date}</time>
         </div>
       </div>
     </section>

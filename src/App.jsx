@@ -5,6 +5,7 @@ import CategoryPage from './pages/CategoryPage';
 import AllArticlesPage from './pages/AllArticlesPage';
 import ContactPage from './pages/ContactPage';
 import ArticlePage from './pages/ArticlePage';
+import AuthorPage from './pages/AuthorPage';
 import NotFoundPage from './pages/NotFoundPage';
 import './App.css';
 
@@ -16,6 +17,7 @@ export default function App() {
         <Route path="articles" element={<AllArticlesPage />} />
         <Route path="contact" element={<ContactPage />} />
         <Route path="article/:id" element={<ArticlePage />} />
+        <Route path="author/:slug" element={<AuthorPage />} />
         <Route path=":slug" element={<CategoryPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Route>

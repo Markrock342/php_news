@@ -46,10 +46,7 @@
 }
 
 .related-card__image-wrap {
-  aspect-ratio: 16 / 10;
   width: 100%;
-  overflow: hidden;
-  background: var(--color-gray-100);
 }
 
 .related-card__body {
@@ -80,7 +77,7 @@
 }
 
 .related-card:hover .related-card__title {
-  color: var(--color-green);
+  color: var(--color-brand);
 }
 
 .related-card__body .meta-line {

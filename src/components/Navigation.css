@@ -1,6 +1,5 @@
 .navigation {
-  background: var(--color-white);
-  border-bottom: 1px solid var(--color-gray-200);
+  background: var(--color-brand);
   position: sticky;
   top: 0;
   z-index: 100;
@@ -24,19 +23,20 @@
   padding: 14px 18px;
   font-size: 0.875rem;
   font-weight: 500;
-  color: var(--color-gray-800);
+  color: rgba(255, 255, 255, 0.85);
   white-space: nowrap;
   border-bottom: 3px solid transparent;
-  transition: color var(--transition), border-color var(--transition);
+  transition: color var(--transition), border-color var(--transition), background var(--transition);
 }
 
 .navigation__link:hover {
-  color: var(--color-green);
+  color: var(--color-white);
+  background: rgba(0, 0, 0, 0.08);
 }
 
 .navigation__link--active {
-  color: var(--color-green);
-  border-bottom-color: var(--color-green);
+  color: var(--color-white);
+  border-bottom-color: var(--color-white);
   font-weight: 600;
 }
 

@@ -68,6 +68,12 @@
   flex: 1;
 }
 
+.headline-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
 .headline-card__category {
   align-self: flex-start;
 }
@@ -85,7 +91,7 @@
 }
 
 .headline-card:hover .headline-card__title {
-  color: var(--color-green);
+  color: var(--color-brand);
 }
 
 .headline-card__excerpt {

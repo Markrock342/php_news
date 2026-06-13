@@ -1,12 +1,14 @@
 import { Link } from 'react-router-dom';
 import ArticleImage from './ArticleImage';
+import AuthorLink from './AuthorLink';
+import { CategoryLink, TagLink } from './CategoryLink';
 import './HeadlineGrid.css';
 
 export default function ArticleCard({ article }) {
   return (
     <article className="headline-card">
       <Link to={`/article/${article.id}`} className="headline-card__link">
-        <div className="headline-card__image-wrap">
+        <div className="article-thumb headline-card__image-wrap">
           <ArticleImage
             photoId={article.image.id}
             alt={article.image.alt}
@@ -16,13 +18,16 @@ export default function ArticleCard({ article }) {
           />
         </div>
         <div className="headline-card__body">
-          <span className="category-badge category-badge--outline headline-card__category">
-            {article.category}
-          </span>
+          <div className="headline-card__tags">
+            <CategoryLink category={article.category} outline className="headline-card__category" />
+            {article.tags.includes('Headline') && article.category !== 'Headline' && (
+              <TagLink tag="Headline" outline />
+            )}
+          </div>
           <h2 className="headline-card__title">{article.title}</h2>
           <p className="headline-card__excerpt">{article.excerpt}</p>
           <div className="meta-line">
-            <span className="meta-line__author">โดย {article.author}</span>
+            <AuthorLink name={article.author} />
             <span className="meta-line__dot">·</span>
             <time>{article.date}</time>
           </div>
