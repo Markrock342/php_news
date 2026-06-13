@@ -10,9 +10,15 @@ export default function HomePage() {
   const latest = homeArticles.slice(3, 13);
 
   return (
-    <MainWithSidebar>
-      <HomeHero featured={featured} secondary={secondary} />
-      <LatestNewsList articles={latest} />
-    </MainWithSidebar>
+    <>
+      <div className="home-hero-wrap">
+        <div className="container">
+          <HomeHero featured={featured} secondary={secondary} />
+        </div>
+      </div>
+      <MainWithSidebar>
+        <LatestNewsList articles={latest} />
+      </MainWithSidebar>
+    </>
   );
 }

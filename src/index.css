@@ -31,8 +31,23 @@
   --article-image-ratio: 16 / 10;
   --gap: 24px;
   --radius: 4px;
+  --radius-md: 6px;
   --shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 8px 24px rgba(22, 78, 74, 0.1);
   --transition: 0.2s ease;
+
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-2xl: 48px;
+
+  --duration-fast: 150ms;
+  --duration-normal: 220ms;
+  --duration-slow: 420ms;
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+  --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 html {
@@ -142,12 +157,21 @@ button {
   color: var(--color-white);
   background: var(--color-brand);
   border-radius: var(--radius);
-  transition: background var(--transition);
+  transition:
+    background var(--duration-normal) var(--ease-out-quart),
+    transform var(--duration-fast) var(--ease-out-quart),
+    box-shadow var(--duration-normal) var(--ease-out-quart);
 }
 
 .btn-primary:hover {
   background: var(--color-brand-dark);
   color: var(--color-white);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
 }
 
 .btn-primary--wide {
@@ -185,6 +209,7 @@ button {
   aspect-ratio: var(--article-image-ratio);
   overflow: hidden;
   background: var(--color-gray-100);
+  min-width: 0;
 }
 
 .article-thumb img {

@@ -4,11 +4,14 @@ import AuthorLink from './AuthorLink';
 import { CategoryLink } from './CategoryLink';
 import './HomeHero.css';
 
-function SecondaryCard({ article }) {
+function SecondaryCard({ article, index }) {
   return (
-    <article className="home-hero__secondary">
+    <article
+      className="home-hero__secondary interactive-lift animate-hero-side"
+      style={{ '--i': index, animationDelay: `${120 + index * 80}ms` }}
+    >
       <Link to={`/article/${article.id}`} className="home-hero__secondary-link">
-        <div className="article-thumb home-hero__secondary-image">
+        <div className="article-thumb home-hero__secondary-image interactive-image">
           <ArticleImage
             photoId={article.image.id}
             alt={article.image.alt}
@@ -31,9 +34,9 @@ export default function HomeHero({ featured, secondary = [] }) {
   if (!featured) return null;
 
   return (
-    <section className="home-hero" aria-label="ข่าวเด่น">
-      <article className="home-hero__main">
-        <Link to={`/article/${featured.id}`} className="home-hero__main-image-wrap">
+    <section className="home-hero animate-hero" aria-label="ข่าวเด่น">
+      <article className="home-hero__main interactive-lift">
+        <Link to={`/article/${featured.id}`} className="home-hero__main-image-wrap interactive-image">
           <div className="article-thumb home-hero__main-image">
             <ArticleImage
               photoId={featured.image.id}
@@ -57,8 +60,8 @@ export default function HomeHero({ featured, secondary = [] }) {
       </article>
 
       <div className="home-hero__side">
-        {secondary.map((article) => (
-          <SecondaryCard key={article.id} article={article} />
+        {secondary.map((article, index) => (
+          <SecondaryCard key={article.id} article={article} index={index} />
         ))}
       </div>
     </section>

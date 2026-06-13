@@ -13,6 +13,7 @@ export default function TopBar() {
     <div className="top-bar">
       <div className="container top-bar__inner">
         <span className="top-bar__date">{today}</span>
+
         <div className="top-bar__links">
           <Link to="/contact">About Us</Link>
           <span className="top-bar__sep">|</span>

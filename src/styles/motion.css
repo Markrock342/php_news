@@ -1,0 +1,107 @@
+@keyframes impeccable-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes impeccable-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes impeccable-scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes impeccable-slide-down {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-hero {
+  animation: impeccable-scale-in 680ms var(--ease-out-quint) both;
+}
+
+.animate-hero-side {
+  animation: impeccable-fade-up 560ms var(--ease-out-quint) both;
+}
+
+.animate-section {
+  animation: impeccable-fade-up 620ms var(--ease-out-quint) both;
+}
+
+.animate-nav {
+  animation: impeccable-slide-down 400ms var(--ease-out-quart) both;
+}
+
+.animate-stagger-item {
+  animation: impeccable-fade-up 480ms var(--ease-out-quint) both;
+  animation-delay: calc(var(--i, 0) * 60ms);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-hero,
+  .animate-hero-side,
+  .animate-section,
+  .animate-nav,
+  .animate-stagger-item {
+    animation: none;
+  }
+}
+
+.interactive-lift {
+  transition:
+    transform var(--duration-normal) var(--ease-out-quart),
+    box-shadow var(--duration-normal) var(--ease-out-quart),
+    border-color var(--duration-normal) var(--ease-out-quart);
+}
+
+.interactive-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(22, 78, 74, 0.12);
+}
+
+.interactive-lift:active {
+  transform: translateY(0);
+  transition-duration: var(--duration-fast);
+}
+
+.interactive-image {
+  overflow: hidden;
+}
+
+.interactive-image img {
+  transition: transform var(--duration-slow) var(--ease-out-quart);
+}
+
+.interactive-image:hover img {
+  transform: scale(1.04);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .interactive-lift:hover {
+    transform: none;
+  }
+
+  .interactive-image:hover img {
+    transform: none;
+  }
+}
